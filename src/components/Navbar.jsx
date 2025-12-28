@@ -1,11 +1,14 @@
-import React from 'react';
-import { Mic, Home, BarChart3, Award, User, LogOut } from 'lucide-react';
+import React, { useState } from 'react';
+import { Home, BarChart3, Award, User, LogOut, ChevronDown } from 'lucide-react';
+import logo from '../assets/logo.jpg';
 
 const Navbar = ({ activeTab, onTabChange }) => {
+    const [showUserMenu, setShowUserMenu] = useState(false);
+
     const navLinks = [
         { id: 'dashboard', label: 'Learn', icon: Home },
-        { id: 'assessment', label: 'Assess', icon: BarChart3 },
-        { id: 'stats', label: 'Stats', icon: Award }
+        { id: 'assessment', label: 'Assessment', icon: BarChart3 },
+        { id: 'statistics', label: 'Statistics', icon: Award }
     ];
 
     return (
@@ -14,10 +17,8 @@ const Navbar = ({ activeTab, onTabChange }) => {
                 <div className="flex justify-between items-center h-16">
                     {/* Brand/Logo - Left */}
                     <div className="flex items-center gap-3">
-                        <div className="bg-emerald-500 rounded-lg p-2">
-                            <Mic className="w-6 h-6 text-white" />
-                        </div>
-                        <span className="text-2xl font-bold text-gray-800">Clarity</span>
+                        <img src={logo} alt="FluentPath Logo" className="w-10 h-10 rounded-lg object-cover" />
+                        <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">FluentPath</span>
                     </div>
 
                     {/* Navigation Links - Center */}
@@ -31,8 +32,8 @@ const Navbar = ({ activeTab, onTabChange }) => {
                                     key={link.id}
                                     onClick={() => onTabChange(link.id)}
                                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${isActive
-                                            ? 'text-emerald-600 bg-emerald-50 border-b-2 border-emerald-600'
-                                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                                        ? 'text-emerald-600 bg-emerald-50 border-b-2 border-emerald-600'
+                                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                                         }`}
                                 >
                                     <IconComponent className="w-5 h-5" />
@@ -42,29 +43,43 @@ const Navbar = ({ activeTab, onTabChange }) => {
                         })}
                     </div>
 
-                    {/* User Profile - Right */}
-                    <div className="flex items-center gap-4">
-                        <div className="hidden md:flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                    {/* User Profile Dropdown - Right */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setShowUserMenu(!showUserMenu)}
+                            className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                        >
                             <div className="bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full p-2">
                                 <User className="w-5 h-5 text-white" />
                             </div>
-                            <div className="text-sm">
-                                <p className="font-semibold text-gray-800">John Doe</p>
+                            <div className="hidden md:block text-left">
+                                <p className="font-semibold text-gray-800 text-sm">John Doe</p>
                                 <p className="text-xs text-gray-500">Premium Member</p>
                             </div>
-                        </div>
-                        <button className="hidden md:flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                            <LogOut className="w-5 h-5" />
-                            <span className="text-sm font-medium">Logout</span>
+                            <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${showUserMenu ? 'rotate-180' : ''}`} />
                         </button>
 
-                        {/* Mobile Menu Button */}
-                        <button className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
+                        {/* Dropdown Menu */}
+                        {showUserMenu && (
+                            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
+                                <div className="px-4 py-3 border-b border-gray-100">
+                                    <p className="font-semibold text-gray-800">John Doe</p>
+                                    <p className="text-xs text-gray-500">john.doe@example.com</p>
+                                </div>
+                                <button className="w-full flex items-center gap-3 px-4 py-3 text-left text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors">
+                                    <LogOut className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Logout</span>
+                                </button>
+                            </div>
+                        )}
                     </div>
+
+                    {/* Mobile Menu Button */}
+                    <button className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
 
                 {/* Mobile Navigation */}

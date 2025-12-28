@@ -1,127 +1,168 @@
 import React, { useState } from 'react';
-import { Mic, StopCircle } from 'lucide-react';
+import { Mic, Upload, Play, Pause, Volume2 } from 'lucide-react';
 
 const Assessment = ({ onComplete }) => {
-    const [currentStep, setCurrentStep] = useState(0);
-    const [isRecording, setIsRecording] = useState(false);
+    const [hasRecording, setHasRecording] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
 
-    const steps = [
-        { title: 'Free Speech', instruction: 'Tell us about your day for 2 minutes' },
-        { title: 'Reading', instruction: 'Read the passage displayed on screen' },
-        { title: 'Questions', instruction: 'Answer a few simple questions' }
-    ];
-
-    const handleRecord = () => {
-        setIsRecording(!isRecording);
+    // Mock analysis results
+    const mockResults = {
+        duration: '0:38',
+        stuttersDetected: 9,
+        stutterRate: 69,
+        segments: [
+            { id: 0, start: 0.00, end: 0.03, hasStutter: true, label: 'Segment 0' },
+            { id: 1, start: 0.03, end: 0.06, hasStutter: true, label: 'Segment 1' },
+            { id: 2, start: 0.06, end: 0.09, hasStutter: true, label: 'Segment 2' },
+            { id: 3, start: 0.09, end: 0.12, hasStutter: true, label: 'Segment 3' },
+            { id: 4, start: 0.12, end: 0.15, hasStutter: true, label: 'Segment 4' },
+            { id: 5, start: 0.15, end: 0.18, hasStutter: true, label: 'Segment 5' },
+            { id: 6, start: 0.18, end: 0.21, hasStutter: false, label: 'Segment 6' },
+            { id: 7, start: 0.21, end: 0.24, hasStutter: false, label: 'Segment 7' },
+            { id: 8, start: 0.24, end: 0.27, hasStutter: false, label: 'Segment 8' },
+            { id: 9, start: 0.27, end: 0.30, hasStutter: true, label: 'Segment 9' },
+            { id: 10, start: 0.30, end: 0.33, hasStutter: true, label: 'Segment 10' },
+            { id: 11, start: 0.33, end: 0.36, hasStutter: true, label: 'Segment 11' },
+            { id: 12, start: 0.36, end: 0.38, hasStutter: true, label: 'Segment 12' }
+        ],
+        confidence: 96.7
     };
 
-    const handleNext = () => {
-        if (currentStep < steps.length - 1) {
-            setCurrentStep(currentStep + 1);
-            setIsRecording(false);
-        } else {
-            onComplete();
-        }
+    const handleRecord = () => {
+        // Simulate recording
+        setTimeout(() => {
+            setHasRecording(true);
+        }, 100);
+    };
+
+    const handleUpload = () => {
+        // Simulate file upload
+        setHasRecording(true);
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                {/* Progress Bar */}
-                <div className="mb-12">
-                    <div className="flex justify-between mb-4">
-                        {steps.map((step, idx) => (
-                            <div key={idx} className="flex flex-col items-center flex-1">
-                                <div
-                                    className={`w-10 h-10 rounded-full flex items-center justify-center font-bold mb-2 transition-all ${idx <= currentStep
-                                            ? 'bg-emerald-500 text-white'
-                                            : 'bg-gray-200 text-gray-500'
-                                        }`}
-                                >
-                                    {idx + 1}
-                                </div>
-                                <span
-                                    className={`text-sm font-medium ${idx === currentStep ? 'text-emerald-600' : 'text-gray-400'
-                                        }`}
-                                >
-                                    {step.title}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div
-                            className="bg-emerald-500 h-3 rounded-full transition-all duration-300"
-                            style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
-                        />
-                    </div>
+        <div className="min-h-screen bg-gray-50 p-6">
+            <div className="max-w-4xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-8">
+                    <h1 className="text-3xl font-bold text-gray-800 mb-2">Speech Assessment</h1>
+                    <p className="text-gray-600">Analyze your speech patterns and detect stuttering</p>
                 </div>
 
-                {/* Step Content */}
-                <div className="bg-white rounded-3xl shadow-xl p-12 mb-8">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                        {steps[currentStep].title}
-                    </h2>
-                    <p className="text-lg text-gray-600 mb-12">
-                        {steps[currentStep].instruction}
-                    </p>
-
-                    {/* Recording Visualizer */}
-                    {isRecording && (
-                        <div className="flex justify-center items-center gap-3 mb-12">
-                            {[...Array(7)].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="w-3 bg-emerald-500 rounded-full animate-pulse"
-                                    style={{
-                                        height: `${Math.random() * 60 + 30}px`,
-                                        animationDelay: `${i * 0.1}s`,
-                                        animationDuration: '0.6s'
-                                    }}
-                                />
-                            ))}
+                {/* Upload Section */}
+                {!hasRecording ? (
+                    <div className="bg-white rounded-2xl p-8 mb-6 shadow-lg">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button
+                                onClick={handleRecord}
+                                className="flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all transform hover:scale-105"
+                            >
+                                <Mic className="w-5 h-5" />
+                                Record Audio
+                            </button>
+                            <button
+                                onClick={handleUpload}
+                                className="flex items-center justify-center gap-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all transform hover:scale-105"
+                            >
+                                <Upload className="w-5 h-5" />
+                                Upload File
+                            </button>
                         </div>
-                    )}
-
-                    {/* Record Button */}
-                    <div className="flex justify-center mb-8">
-                        <button
-                            onClick={handleRecord}
-                            className={`rounded-full p-12 shadow-2xl transition-all transform hover:scale-110 ${isRecording
-                                    ? 'bg-red-500 hover:bg-red-600 animate-pulse'
-                                    : 'bg-emerald-500 hover:bg-emerald-600'
-                                }`}
-                        >
-                            {isRecording ? (
-                                <StopCircle className="w-20 h-20 text-white" />
-                            ) : (
-                                <Mic className="w-20 h-20 text-white" />
-                            )}
-                        </button>
                     </div>
+                ) : (
+                    <div className="bg-white rounded-2xl p-6 shadow-lg">
+                        {/* Stats Cards */}
+                        <div className="grid grid-cols-3 gap-4 mb-6">
+                            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center border border-purple-200">
+                                <h3 className="text-3xl font-bold text-purple-600 mb-1">{mockResults.duration}</h3>
+                                <p className="text-xs text-gray-600 font-medium">Total Duration</p>
+                            </div>
+                            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center border border-purple-200">
+                                <h3 className="text-3xl font-bold text-purple-600 mb-1">{mockResults.stuttersDetected}</h3>
+                                <p className="text-xs text-gray-600 font-medium">Stutters Detected</p>
+                            </div>
+                            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center border border-purple-200">
+                                <h3 className="text-3xl font-bold text-purple-600 mb-1">{mockResults.stutterRate}%</h3>
+                                <p className="text-xs text-gray-600 font-medium">Stutter Rate</p>
+                            </div>
+                        </div>
 
-                    <p className="text-center text-gray-600 font-medium">
-                        {isRecording ? 'Recording... Speak clearly!' : 'Click to start recording'}
-                    </p>
-                </div>
+                        {/* Audio Player */}
+                        <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-200">
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={() => setIsPlaying(!isPlaying)}
+                                    className="bg-emerald-600 hover:bg-emerald-700 rounded-full p-4 transition-colors shadow-md"
+                                >
+                                    {isPlaying ? (
+                                        <Pause className="w-6 h-6 text-white" />
+                                    ) : (
+                                        <Play className="w-6 h-6 text-white" />
+                                    )}
+                                </button>
+                                <div className="flex-1">
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <span className="text-xs text-gray-500 font-medium">0:00</span>
+                                        <div className="flex-1 bg-gray-200 rounded-full h-2 relative">
+                                            <div className="bg-emerald-500 h-2 rounded-full w-1/3"></div>
+                                            <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-4 h-4 bg-emerald-600 rounded-full border-2 border-white shadow-lg"></div>
+                                        </div>
+                                        <span className="text-xs text-gray-500 font-medium">{mockResults.duration}</span>
+                                    </div>
+                                </div>
+                                <Volume2 className="w-5 h-5 text-gray-400" />
+                            </div>
+                        </div>
 
-                {/* Navigation Buttons */}
-                <div className="flex gap-4">
-                    {currentStep > 0 && (
-                        <button
-                            onClick={() => setCurrentStep(currentStep - 1)}
-                            className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-4 rounded-xl transition-all"
-                        >
-                            Previous
-                        </button>
-                    )}
-                    <button
-                        onClick={handleNext}
-                        className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 rounded-xl shadow-lg transition-all hover:shadow-xl"
-                    >
-                        {currentStep < steps.length - 1 ? 'Next Step' : 'Complete Assessment'}
-                    </button>
-                </div>
+                        {/* Timeline */}
+                        <div className="mb-6">
+                            <div className="flex items-center justify-between mb-3">
+                                <p className="text-xs text-gray-600 font-semibold">Timeline (3-second segments)</p>
+                                <div className="flex items-center gap-3 text-xs">
+                                    <div className="flex items-center gap-1">
+                                        <div className="w-3 h-3 bg-emerald-500 rounded"></div>
+                                        <span className="text-gray-600 font-medium">No Stutter</span>
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <div className="w-3 h-3 bg-red-500 rounded"></div>
+                                        <span className="text-gray-600 font-medium">Stutter Detected</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-2">
+                                {mockResults.segments.map((segment) => (
+                                    <div
+                                        key={segment.id}
+                                        className={`${segment.hasStutter ? 'bg-red-500 hover:bg-red-600' : 'bg-emerald-500 hover:bg-emerald-600'
+                                            } rounded-lg p-3 text-center transition-all hover:scale-105 cursor-pointer shadow-md`}
+                                    >
+                                        <p className="text-white font-bold text-xs mb-1">{segment.label}</p>
+                                        <p className="text-white text-[10px] opacity-90">
+                                            {segment.start.toFixed(2)}-{segment.end.toFixed(2)}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => setHasRecording(false)}
+                                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-xl transition-all"
+                            >
+                                New Recording
+                            </button>
+                            <button
+                                onClick={onComplete}
+                                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition-all shadow-lg hover:shadow-xl"
+                            >
+                                Save Results
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

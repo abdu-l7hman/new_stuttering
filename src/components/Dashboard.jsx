@@ -8,6 +8,30 @@ const Dashboard = ({ onCardClick }) => {
     const practiceCards = [
         {
             id: 1,
+            title: 'Free Speech',
+            description: 'Tell us about your day for 2 minutes',
+            xp: 50,
+            completed: false,
+            icon: '💬'
+        },
+        {
+            id: 2,
+            title: 'Reading',
+            description: 'Read the passage displayed',
+            xp: 30,
+            completed: false,
+            icon: '📖'
+        },
+        {
+            id: 3,
+            title: 'Questions',
+            description: 'Answer simple questions',
+            xp: 40,
+            completed: false,
+            icon: '❓'
+        },
+        {
+            id: 4,
             title: 'Turtle Pace',
             description: 'Slow down your speech',
             xp: 50,
@@ -15,7 +39,7 @@ const Dashboard = ({ onCardClick }) => {
             icon: '🐢'
         },
         {
-            id: 2,
+            id: 5,
             title: 'Soft Sounds',
             description: 'Practice gentle onset',
             xp: 30,
@@ -23,7 +47,7 @@ const Dashboard = ({ onCardClick }) => {
             icon: '🎵'
         },
         {
-            id: 3,
+            id: 6,
             title: 'Breathing Exercise',
             description: 'Control your breath',
             xp: 40,
@@ -31,15 +55,15 @@ const Dashboard = ({ onCardClick }) => {
             icon: '🌬️'
         },
         {
-            id: 4,
+            id: 7,
             title: 'Word Repetition',
             description: 'Practice challenging words',
             xp: 60,
             completed: false,
-            icon: '📖'
+            icon: '📚'
         },
         {
-            id: 5,
+            id: 8,
             title: 'Prolonged Sounds',
             description: 'Stretch vowel sounds',
             xp: 45,
@@ -47,12 +71,12 @@ const Dashboard = ({ onCardClick }) => {
             icon: '🎤'
         },
         {
-            id: 6,
+            id: 9,
             title: 'Phrase Practice',
             description: 'Build fluent phrases',
             xp: 55,
             completed: false,
-            icon: '💬'
+            icon: '🗣️'
         }
     ];
 
@@ -62,53 +86,47 @@ const Dashboard = ({ onCardClick }) => {
                 {/* Stats Summary Strip */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     {/* Daily Goal Card */}
-                    <div className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                        <div className="flex items-center justify-between mb-4">
-                            <div>
-                                <p className="text-sm font-medium opacity-90">Daily Goal</p>
-                                <div className="flex items-baseline gap-2 mt-1">
-                                    <span className="text-3xl font-bold">{dailyGoal.current}</span>
-                                    <span className="text-lg opacity-75">/ {dailyGoal.target} XP</span>
-                                </div>
-                            </div>
-                            <Target className="w-12 h-12 opacity-80" />
+                    <div className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow text-center">
+                        <div className="flex justify-center mb-3">
+                            <Target className="w-10 h-10 opacity-90" />
                         </div>
-                        <div className="w-full bg-white/20 rounded-full h-3">
+                        <p className="text-sm font-semibold mb-2">Daily Goal</p>
+                        <div className="flex items-baseline gap-2 justify-center mb-4">
+                            <span className="text-4xl font-bold">{dailyGoal.current}</span>
+                            <span className="text-lg font-medium">/ {dailyGoal.target} XP</span>
+                        </div>
+                        <div className="w-full bg-white/30 rounded-full h-2.5">
                             <div
-                                className="bg-white h-3 rounded-full transition-all duration-500"
+                                className="bg-white h-2.5 rounded-full transition-all duration-500"
                                 style={{ width: `${(dailyGoal.current / dailyGoal.target) * 100}%` }}
                             />
                         </div>
                     </div>
 
                     {/* Streak Card */}
-                    <div className="bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sm font-medium opacity-90">Current Streak</p>
-                                <div className="flex items-baseline gap-2 mt-1">
-                                    <span className="text-3xl font-bold">{streak}</span>
-                                    <span className="text-lg opacity-75">Days</span>
-                                </div>
-                            </div>
-                            <Flame className="w-12 h-12 opacity-80" />
+                    <div className="bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow text-center">
+                        <div className="flex justify-center mb-3">
+                            <Flame className="w-10 h-10" />
                         </div>
-                        <p className="text-sm opacity-90 mt-4">Keep it up! 🔥</p>
+                        <p className="text-sm font-semibold mb-2">Current Streak</p>
+                        <div className="flex items-baseline gap-2 justify-center mb-3">
+                            <span className="text-4xl font-bold">{streak}</span>
+                            <span className="text-lg font-medium">Days</span>
+                        </div>
+                        <p className="text-sm font-medium">Keep it up!</p>
                     </div>
 
                     {/* Progress Card */}
-                    <div className="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <p className="text-sm font-medium opacity-90">Overall Progress</p>
-                                <div className="flex items-baseline gap-2 mt-1">
-                                    <span className="text-3xl font-bold">42%</span>
-                                    <span className="text-lg opacity-75">Better</span>
-                                </div>
-                            </div>
-                            <TrendingUp className="w-12 h-12 opacity-80" />
+                    <div className="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow text-center">
+                        <div className="flex justify-center mb-3">
+                            <TrendingUp className="w-10 h-10" />
                         </div>
-                        <p className="text-sm opacity-90 mt-4">Amazing improvement!</p>
+                        <p className="text-sm font-semibold mb-2">Overall Progress</p>
+                        <div className="flex items-baseline gap-2 justify-center mb-3">
+                            <span className="text-4xl font-bold">42%</span>
+                            <span className="text-lg font-medium">Better</span>
+                        </div>
+                        <p className="text-sm font-medium">Amazing improvement!</p>
                     </div>
                 </div>
 
@@ -127,11 +145,15 @@ const Dashboard = ({ onCardClick }) => {
                             <div
                                 key={card.id}
                                 onClick={() => !card.completed && onCardClick(card)}
-                                className={`bg-white rounded-2xl shadow-md p-6 transition-all transform ${card.completed
-                                        ? 'opacity-75'
-                                        : 'cursor-pointer hover:shadow-xl hover:scale-105'
+                                className={`bg-white rounded-2xl shadow-md p-6 transition-all transform relative overflow-hidden group ${card.completed
+                                    ? 'opacity-75'
+                                    : 'cursor-pointer hover:shadow-xl hover:scale-105'
                                     }`}
                             >
+                                {/* Green wave hover effect */}
+                                {!card.completed && (
+                                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                                )}
                                 <div className="flex items-start justify-between mb-4">
                                     <span className="text-4xl">{card.icon}</span>
                                     {card.completed ? (
@@ -147,10 +169,10 @@ const Dashboard = ({ onCardClick }) => {
                                     )}
                                 </div>
 
-                                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                                <h3 className="text-lg font-bold text-gray-800 mb-2 text-center">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-gray-600 mb-4">{card.description}</p>
+                                <p className="text-sm text-gray-600 mb-4 text-center">{card.description}</p>
 
                                 {!card.completed && (
                                     <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors">

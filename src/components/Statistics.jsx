@@ -2,7 +2,7 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Award, Trophy, Flame, Target, TrendingUp, Calendar } from 'lucide-react';
 
-const Stats = () => {
+const Statistics = () => {
     // Mock data for the week
     const weekData = [
         { day: 'Mon', severity: 6.5 },
@@ -34,19 +34,19 @@ const Stats = () => {
 
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
                         <p className="text-sm text-gray-600 mb-1 font-medium">Total Sessions</p>
                         <p className="text-4xl font-bold text-gray-800">24</p>
                     </div>
-                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
                         <p className="text-sm text-gray-600 mb-1 font-medium">Total XP</p>
                         <p className="text-4xl font-bold text-amber-600">1,240</p>
                     </div>
-                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
                         <p className="text-sm text-gray-600 mb-1 font-medium">Current Streak</p>
                         <p className="text-4xl font-bold text-orange-600">7 days</p>
                     </div>
-                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
                         <p className="text-sm text-gray-600 mb-1 font-medium">Improvement</p>
                         <p className="text-4xl font-bold text-emerald-600">42%</p>
                     </div>
@@ -114,21 +114,21 @@ const Stats = () => {
                                     <div
                                         key={achievement.id}
                                         className={`rounded-xl p-4 border-2 transition-all cursor-pointer hover:scale-105 ${achievement.unlocked
-                                                ? `${colors.border} ${colors.bg}`
-                                                : 'border-gray-200 bg-gray-50 opacity-50'
+                                            ? `${colors.border} ${colors.bg}`
+                                            : 'border-gray-200 bg-gray-50 opacity-50'
                                             }`}
                                     >
                                         <div className="flex flex-col items-center text-center gap-2">
                                             <div
                                                 className={`p-3 rounded-full ${achievement.unlocked
-                                                        ? colors.bg
-                                                        : 'bg-gray-200'
+                                                    ? colors.bg
+                                                    : 'bg-gray-200'
                                                     }`}
                                             >
                                                 <IconComponent
                                                     className={`w-6 h-6 ${achievement.unlocked
-                                                            ? colors.text
-                                                            : 'text-gray-400'
+                                                        ? colors.text
+                                                        : 'text-gray-400'
                                                         }`}
                                                 />
                                             </div>
@@ -150,4 +150,4 @@ const Stats = () => {
     );
 };
 
-export default Stats;
+export default Statistics;
