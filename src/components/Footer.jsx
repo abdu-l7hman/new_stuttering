@@ -13,15 +13,15 @@ const Footer = () => {
                             <img src={logo} alt="FluentPath Logo" className="w-10 h-10 rounded-lg object-cover" />
                             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">FluentPath</span>
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-gray-900">
                             Your personal stuttering therapy companion
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div className="text-center">
-                        <h3 className="font-semibold text-gray-800 mb-3">Quick Links</h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
+                        <h3 className="font-semibold text-gray-900 mb-3">Quick Links</h3>
+                        <ul className="space-y-2 text-sm text-gray-900">
                             <li><a href="#" className="hover:text-emerald-600 transition-colors">About Us</a></li>
                             <li><a href="#" className="hover:text-emerald-600 transition-colors">Privacy Policy</a></li>
                             <li><a href="#" className="hover:text-emerald-600 transition-colors">Terms of Service</a></li>
@@ -31,8 +31,8 @@ const Footer = () => {
 
                     {/* Contact Section */}
                     <div className="text-center md:text-right">
-                        <h3 className="font-semibold text-gray-800 mb-3">Contact</h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
+                        <h3 className="font-semibold text-gray-900 mb-3">Contact</h3>
+                        <ul className="space-y-2 text-sm text-gray-900">
                             <li>support@fluentpath.com</li>
                             <li>+1 (555) 123-4567</li>
                         </ul>
@@ -41,10 +41,10 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-200 mt-8 pt-6 text-center">
-                    <p className="text-sm text-gray-600 flex items-center justify-center gap-1">
+                    <p className="text-sm text-gray-900 flex items-center justify-center gap-1">
                         Made with <Heart className="w-4 h-4 text-red-500 fill-current" /> by FluentPath Team
                     </p>
-                    <p className="text-xs text-gray-500 mt-2">
+                    <p className="text-xs text-gray-900 mt-2">
                         © {new Date().getFullYear()} FluentPath. All rights reserved.
                     </p>
                 </div>
