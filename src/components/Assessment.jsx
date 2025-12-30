@@ -45,8 +45,8 @@ const Assessment = ({ onComplete }) => {
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">Speech Assessment</h1>
-                    <p className="text-gray-600">Analyze your speech patterns and detect stuttering</p>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Speech Assessment</h1>
+                    <p className="text-gray-900">Analyze your speech patterns and detect stuttering</p>
                 </div>
 
                 {/* Upload Section */}
@@ -62,7 +62,7 @@ const Assessment = ({ onComplete }) => {
                             </button>
                             <button
                                 onClick={handleUpload}
-                                className="flex items-center justify-center gap-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all transform hover:scale-105"
+                                className="flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition-all transform hover:scale-105"
                             >
                                 <Upload className="w-5 h-5" />
                                 Upload File
@@ -75,15 +75,15 @@ const Assessment = ({ onComplete }) => {
                         <div className="grid grid-cols-3 gap-4 mb-6">
                             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center border border-purple-200">
                                 <h3 className="text-3xl font-bold text-purple-600 mb-1">{mockResults.duration}</h3>
-                                <p className="text-xs text-gray-600 font-medium">Total Duration</p>
+                                <p className="text-xs text-gray-900 font-medium">Total Duration</p>
                             </div>
                             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center border border-purple-200">
                                 <h3 className="text-3xl font-bold text-purple-600 mb-1">{mockResults.stuttersDetected}</h3>
-                                <p className="text-xs text-gray-600 font-medium">Stutters Detected</p>
+                                <p className="text-xs text-gray-900 font-medium">Stutters Detected</p>
                             </div>
                             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center border border-purple-200">
                                 <h3 className="text-3xl font-bold text-purple-600 mb-1">{mockResults.stutterRate}%</h3>
-                                <p className="text-xs text-gray-600 font-medium">Stutter Rate</p>
+                                <p className="text-xs text-gray-900 font-medium">Stutter Rate</p>
                             </div>
                         </div>
 
@@ -102,30 +102,30 @@ const Assessment = ({ onComplete }) => {
                                 </button>
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-xs text-gray-500 font-medium">0:00</span>
+                                        <span className="text-xs text-gray-900 font-medium">0:00</span>
                                         <div className="flex-1 bg-gray-200 rounded-full h-2 relative">
-                                            <div className="bg-emerald-500 h-2 rounded-full w-1/3"></div>
-                                            <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-4 h-4 bg-emerald-600 rounded-full border-2 border-white shadow-lg"></div>
+                                            <div className="bg-emerald-600 h-2 rounded-full w-1/3"></div>
+                                            <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-4 h-4 bg-emerald-700 rounded-full border-2 border-white shadow-lg"></div>
                                         </div>
-                                        <span className="text-xs text-gray-500 font-medium">{mockResults.duration}</span>
+                                        <span className="text-xs text-gray-900 font-medium">{mockResults.duration}</span>
                                     </div>
                                 </div>
-                                <Volume2 className="w-5 h-5 text-gray-400" />
+                                <Volume2 className="w-5 h-5 text-gray-900" />
                             </div>
                         </div>
 
                         {/* Timeline */}
                         <div className="mb-6">
                             <div className="flex items-center justify-between mb-3">
-                                <p className="text-xs text-gray-600 font-semibold">Timeline (3-second segments)</p>
+                                <p className="text-xs text-gray-900 font-semibold">Timeline (3-second segments)</p>
                                 <div className="flex items-center gap-3 text-xs">
                                     <div className="flex items-center gap-1">
-                                        <div className="w-3 h-3 bg-emerald-500 rounded"></div>
-                                        <span className="text-gray-600 font-medium">No Stutter</span>
+                                        <div className="w-3 h-3 bg-emerald-600 rounded"></div>
+                                        <span className="text-gray-900 font-medium">No Stutter</span>
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <div className="w-3 h-3 bg-red-500 rounded"></div>
-                                        <span className="text-gray-600 font-medium">Stutter Detected</span>
+                                        <div className="w-3 h-3 bg-red-600 rounded"></div>
+                                        <span className="text-gray-900 font-medium">Stutter Detected</span>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ const Assessment = ({ onComplete }) => {
                                 {mockResults.segments.map((segment) => (
                                     <div
                                         key={segment.id}
-                                        className={`${segment.hasStutter ? 'bg-red-500 hover:bg-red-600' : 'bg-emerald-500 hover:bg-emerald-600'
+                                        className={`${segment.hasStutter ? 'bg-red-600 hover:bg-red-700' : 'bg-emerald-600 hover:bg-emerald-700'
                                             } rounded-lg p-3 text-center transition-all hover:scale-105 cursor-pointer shadow-md`}
                                     >
                                         <p className="text-white font-bold text-xs mb-1">{segment.label}</p>
@@ -150,7 +150,7 @@ const Assessment = ({ onComplete }) => {
                         <div className="flex gap-3">
                             <button
                                 onClick={() => setHasRecording(false)}
-                                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-xl transition-all"
+                                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-900 font-semibold py-3 rounded-xl transition-all"
                             >
                                 New Recording
                             </button>
