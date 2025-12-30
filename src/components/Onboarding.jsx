@@ -20,7 +20,7 @@ const Onboarding = ({ onStart }) => {
                     <h1 className="text-5xl font-bold mb-4">
                         <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">Welcome to FluentPath</span>
                     </h1>
-                    <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg text-gray-900 leading-relaxed max-w-2xl mx-auto">
                         Your personal stuttering therapy companion. Practice daily exercises,
                         track your progress, and build confidence in your speech journey.
                     </p>
@@ -37,8 +37,8 @@ const Onboarding = ({ onStart }) => {
                                 className="w-full h-48 object-cover rounded-lg"
                             />
                         </div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2">Personalized Assessment</h3>
-                        <p className="text-sm text-gray-600">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">Personalized Assessment</h3>
+                        <p className="text-sm text-gray-900">
                             Begin with a free speech assessment to understand your baseline and create a customized therapy plan
                         </p>
                     </div>
@@ -52,8 +52,8 @@ const Onboarding = ({ onStart }) => {
                                 className="w-full h-48 object-cover rounded-lg"
                             />
                         </div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2">Track Your Journey</h3>
-                        <p className="text-sm text-gray-600">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">Track Your Journey</h3>
+                        <p className="text-sm text-gray-900">
                             Monitor your improvement with detailed progress charts, streaks, and achievement milestones
                         </p>
                     </div>
@@ -67,8 +67,8 @@ const Onboarding = ({ onStart }) => {
                                 className="w-full h-48 object-cover rounded-lg"
                             />
                         </div>
-                        <h3 className="text-lg font-bold text-gray-800 mb-2">Daily Practice</h3>
-                        <p className="text-sm text-gray-600">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">Daily Practice</h3>
+                        <p className="text-sm text-gray-900">
                             Access engaging exercises designed by speech therapists to improve fluency and build confidence
                         </p>
                     </div>
@@ -78,7 +78,7 @@ const Onboarding = ({ onStart }) => {
                 <div className="flex justify-center">
                     <button
                         onClick={onStart}
-                        className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-16 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-xl"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-16 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-xl"
                     >
                         Get Started
                     </button>
