@@ -78,7 +78,7 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
                     <h1 className="text-4xl font-bold mb-2">
                         <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">Create Account</span>
                     </h1>
-                    <p className="text-gray-600">
+                    <p className="text-gray-900">
                         Start your journey to confident speech
                     </p>
                 </div>
@@ -87,12 +87,12 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Name Field */}
                     <div>
-                        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                             Full Name
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <User className="h-5 w-5 text-gray-400" />
+                                <User className="h-5 w-5 text-gray-600" />
                             </div>
                             <input
                                 type="text"
@@ -117,12 +117,12 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
 
                     {/* Email Field */}
                     <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                             Email Address
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Mail className="h-5 w-5 text-gray-400" />
+                                <Mail className="h-5 w-5 text-gray-600" />
                             </div>
                             <input
                                 type="email"
@@ -147,12 +147,12 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
 
                     {/* Password Field */}
                     <div>
-                        <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="password" className="block text-sm font-semibold text-gray-900 mb-2">
                             Password
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Lock className="h-5 w-5 text-gray-400" />
+                                <Lock className="h-5 w-5 text-gray-600" />
                             </div>
                             <input
                                 type="password"
@@ -177,12 +177,12 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
 
                     {/* Confirm Password Field */}
                     <div>
-                        <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-900 mb-2">
                             Confirm Password
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Lock className="h-5 w-5 text-gray-400" />
+                                <Lock className="h-5 w-5 text-gray-600" />
                             </div>
                             <input
                                 type="password"
@@ -219,13 +219,13 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
                                 aria-invalid={!!errors.agreeToTerms}
                                 aria-describedby={errors.agreeToTerms ? 'terms-error' : undefined}
                             />
-                            <span className="ml-2 text-sm text-gray-700">
+                            <span className="ml-2 text-sm text-gray-900">
                                 I agree to the{' '}
-                                <a href="#" className="text-emerald-600 hover:text-emerald-700 font-semibold">
+                                <a href="#" className="text-emerald-700 hover:text-emerald-800 font-semibold">
                                     Terms of Service
                                 </a>{' '}
                                 and{' '}
-                                <a href="#" className="text-emerald-600 hover:text-emerald-700 font-semibold">
+                                <a href="#" className="text-emerald-700 hover:text-emerald-800 font-semibold">
                                     Privacy Policy
                                 </a>
                             </span>
@@ -240,7 +240,7 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
                     {/* Register Button */}
                     <button
                         type="submit"
-                        className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                     >
                         <span>Create Account</span>
                         <ArrowRight className="w-5 h-5" />
@@ -249,11 +249,11 @@ const Register = ({ onRegister, onSwitchToLogin }) => {
 
                 {/* Login Link */}
                 <div className="mt-8 text-center">
-                    <p className="text-gray-600">
+                    <p className="text-gray-900">
                         Already have an account?{' '}
                         <button
                             onClick={onSwitchToLogin}
-                            className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
+                            className="text-emerald-700 hover:text-emerald-800 font-semibold transition-colors"
                         >
                             Sign in
                         </button>
