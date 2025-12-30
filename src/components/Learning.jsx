@@ -59,8 +59,8 @@ const Learning = ({ onComplete }) => {
                             <div key={idx} className="flex flex-col items-center flex-1">
                                 <div
                                     className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm mb-1 transition-all relative ${idx <= currentStep
-                                        ? 'bg-emerald-500 text-white'
-                                        : 'bg-gray-200 text-gray-500'
+                                        ? 'bg-emerald-600 text-white'
+                                        : 'bg-gray-200 text-gray-900'
                                         }`}
                                 >
                                     {stepResults[idx] ? (
@@ -70,7 +70,7 @@ const Learning = ({ onComplete }) => {
                                     )}
                                 </div>
                                 <span
-                                    className={`text-xs font-medium ${idx === currentStep ? 'text-emerald-600' : 'text-gray-400'
+                                    className={`text-xs font-medium ${idx === currentStep ? 'text-emerald-700' : 'text-gray-900'
                                         }`}
                                 >
                                     {step.title}
@@ -80,7 +80,7 @@ const Learning = ({ onComplete }) => {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-1.5">
                         <div
-                            className="bg-emerald-500 h-1.5 rounded-full transition-all duration-300"
+                            className="bg-emerald-600 h-1.5 rounded-full transition-all duration-300"
                             style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
                         />
                     </div>
@@ -92,17 +92,17 @@ const Learning = ({ onComplete }) => {
                         {/* Left Column - Instructions & Recording */}
                         <div className="flex flex-col justify-between">
                             <div>
-                                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                                <h2 className="text-2xl font-bold text-gray-900 mb-2">
                                     {steps[currentStep].title}
                                 </h2>
-                                <p className="text-sm text-gray-600 mb-4">
+                                <p className="text-sm text-gray-900 mb-4">
                                     {steps[currentStep].instruction}
                                 </p>
 
                                 {/* Example */}
                                 <div className="bg-emerald-50 border-l-4 border-emerald-500 p-3 mb-4">
-                                    <p className="text-xs font-semibold text-emerald-700 mb-1">Example:</p>
-                                    <p className="text-xs text-gray-700 italic">
+                                    <p className="text-xs font-semibold text-emerald-800 mb-1">Example:</p>
+                                    <p className="text-xs text-gray-900 italic">
                                         {steps[currentStep].example}
                                     </p>
                                 </div>
@@ -131,7 +131,7 @@ const Learning = ({ onComplete }) => {
                                     onClick={handleRecord}
                                     className={`rounded-full p-6 shadow-xl transition-all transform hover:scale-105 ${isRecording
                                         ? 'bg-red-500 hover:bg-red-600 animate-pulse'
-                                        : 'bg-emerald-500 hover:bg-emerald-600'
+                                        : 'bg-emerald-600 hover:bg-emerald-700'
                                         }`}
                                 >
                                     {isRecording ? (
@@ -140,7 +140,7 @@ const Learning = ({ onComplete }) => {
                                         <Mic className="w-12 h-12 text-white" />
                                     )}
                                 </button>
-                                <p className="text-xs text-gray-600 font-medium mt-2">
+                                <p className="text-xs text-gray-900 font-medium mt-2">
                                     {isRecording ? 'Recording... Speak clearly!' : 'Click to start recording'}
                                 </p>
                             </div>
@@ -148,20 +148,20 @@ const Learning = ({ onComplete }) => {
 
                         {/* Right Column - Results */}
                         <div className="bg-gray-50 rounded-xl p-4">
-                            <h3 className="text-lg font-bold text-gray-800 mb-3">Assessment Results</h3>
+                            <h3 className="text-lg font-bold text-gray-900 mb-3">Assessment Results</h3>
 
                             {stepResults[currentStep] ? (
                                 <div className="space-y-4">
                                     <div className="bg-white rounded-lg p-4 shadow-sm">
                                         <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-semibold text-gray-700">Fluency Score</span>
-                                            <span className="text-2xl font-bold text-emerald-600">
+                                            <span className="text-sm font-semibold text-gray-900">Fluency Score</span>
+                                            <span className="text-2xl font-bold text-emerald-700">
                                                 {stepResults[currentStep].fluency}%
                                             </span>
                                         </div>
                                         <div className="w-full bg-gray-200 rounded-full h-2">
                                             <div
-                                                className="bg-emerald-500 h-2 rounded-full transition-all"
+                                                className="bg-emerald-600 h-2 rounded-full transition-all"
                                                 style={{ width: `${stepResults[currentStep].fluency}%` }}
                                             />
                                         </div>
@@ -169,7 +169,7 @@ const Learning = ({ onComplete }) => {
 
                                     <div className="bg-white rounded-lg p-4 shadow-sm">
                                         <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-semibold text-gray-700">Confidence Level</span>
+                                            <span className="text-sm font-semibold text-gray-900">Confidence Level</span>
                                             <span className="text-2xl font-bold text-blue-600">
                                                 {stepResults[currentStep].confidence}%
                                             </span>
@@ -184,10 +184,10 @@ const Learning = ({ onComplete }) => {
 
                                     <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
                                         <div className="flex items-center gap-2 mb-1">
-                                            <CheckCircle className="w-4 h-4 text-emerald-600" />
-                                            <span className="text-xs font-semibold text-emerald-700">Great job!</span>
+                                            <CheckCircle className="w-4 h-4 text-emerald-700" />
+                                            <span className="text-xs font-semibold text-emerald-800">Great job!</span>
                                         </div>
-                                        <p className="text-xs text-gray-700">
+                                        <p className="text-xs text-gray-900">
                                             You're showing good progress. Keep practicing to improve your fluency.
                                         </p>
                                     </div>
@@ -195,9 +195,9 @@ const Learning = ({ onComplete }) => {
                             ) : (
                                 <div className="text-center py-8">
                                     <div className="bg-gray-200 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                                        <Mic className="w-8 h-8 text-gray-400" />
+                                        <Mic className="w-8 h-8 text-gray-900" />
                                     </div>
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-gray-900">
                                         Complete the recording to see your results
                                     </p>
                                 </div>
@@ -206,14 +206,14 @@ const Learning = ({ onComplete }) => {
                             {/* Overall Progress */}
                             {stepResults.some(r => r !== null) && (
                                 <div className="mt-4 pt-4 border-t border-gray-200">
-                                    <p className="text-xs font-semibold text-gray-600 mb-2">
+                                    <p className="text-xs font-semibold text-gray-900 mb-2">
                                         Steps Completed: {stepResults.filter(r => r !== null).length} / {steps.length}
                                     </p>
                                     <div className="flex gap-1">
                                         {stepResults.map((result, idx) => (
                                             <div
                                                 key={idx}
-                                                className={`flex-1 h-1.5 rounded-full ${result ? 'bg-emerald-500' : 'bg-gray-200'
+                                                className={`flex-1 h-1.5 rounded-full ${result ? 'bg-emerald-600' : 'bg-gray-200'
                                                     }`}
                                             />
                                         ))}
@@ -228,14 +228,14 @@ const Learning = ({ onComplete }) => {
                         {currentStep > 0 && (
                             <button
                                 onClick={() => setCurrentStep(currentStep - 1)}
-                                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 rounded-xl transition-all text-sm"
+                                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-900 font-semibold py-3 rounded-xl transition-all text-sm"
                             >
                                 Previous
                             </button>
                         )}
                         <button
                             onClick={handleNext}
-                            className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl shadow-lg transition-all hover:shadow-xl text-sm"
+                            className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-lg transition-all hover:shadow-xl text-sm"
                         >
                             {currentStep < steps.length - 1 ? 'Next Step' : 'Complete Assessment'}
                         </button>
