@@ -20,8 +20,8 @@ const BottomNav = ({ activeTab, onTabChange }) => {
                             key={tab.id}
                             onClick={() => onTabChange(tab.id)}
                             className={`flex flex-col items-center justify-center w-20 py-2 rounded-lg transition-all ${isActive
-                                    ? 'text-emerald-600'
-                                    : 'text-gray-400 hover:text-gray-600'
+                                ? 'text-emerald-700'
+                                : 'text-gray-900 hover:text-black'
                                 }`}
                         >
                             <IconComponent className={`w-6 h-6 mb-1 ${isActive ? 'scale-110' : ''}`} />
@@ -29,7 +29,7 @@ const BottomNav = ({ activeTab, onTabChange }) => {
                                 {tab.label}
                             </span>
                             {isActive && (
-                                <div className="w-1 h-1 bg-emerald-600 rounded-full mt-1" />
+                                <div className="w-1 h-1 bg-emerald-700 rounded-full mt-1" />
                             )}
                         </button>
                     );
