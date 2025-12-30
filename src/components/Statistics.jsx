@@ -28,27 +28,27 @@ const Statistics = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Header */}
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">Your Progress</h1>
-                    <p className="text-gray-600">Track your journey to fluent speech</p>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Your Progress</h1>
+                    <p className="text-gray-900">Track your journey to fluent speech</p>
                 </div>
 
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-                        <p className="text-sm text-gray-600 mb-1 font-medium">Total Sessions</p>
-                        <p className="text-4xl font-bold text-gray-800">24</p>
+                        <p className="text-sm text-gray-900 mb-1 font-medium">Total Sessions</p>
+                        <p className="text-4xl font-bold text-gray-900">24</p>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-                        <p className="text-sm text-gray-600 mb-1 font-medium">Total XP</p>
-                        <p className="text-4xl font-bold text-amber-600">1,240</p>
+                        <p className="text-sm text-gray-900 mb-1 font-medium">Total XP</p>
+                        <p className="text-4xl font-bold text-amber-700">1,240</p>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-                        <p className="text-sm text-gray-600 mb-1 font-medium">Current Streak</p>
-                        <p className="text-4xl font-bold text-orange-600">7 days</p>
+                        <p className="text-sm text-gray-900 mb-1 font-medium">Current Streak</p>
+                        <p className="text-4xl font-bold text-orange-700">7 days</p>
                     </div>
                     <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow text-center">
-                        <p className="text-sm text-gray-600 mb-1 font-medium">Improvement</p>
-                        <p className="text-4xl font-bold text-emerald-600">42%</p>
+                        <p className="text-sm text-gray-900 mb-1 font-medium">Improvement</p>
+                        <p className="text-4xl font-bold text-emerald-700">42%</p>
                     </div>
                 </div>
 
@@ -56,19 +56,19 @@ const Statistics = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Left: Chart Section (Takes 2 columns on large screens) */}
                     <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-shadow">
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">Stuttering Severity</h3>
-                        <p className="text-sm text-gray-600 mb-6">Lower is better - Track your weekly progress</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">Stuttering Severity</h3>
+                        <p className="text-sm text-gray-900 mb-6">Lower is better - Track your weekly progress</p>
 
                         <ResponsiveContainer width="100%" height={350}>
                             <LineChart data={weekData}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                                 <XAxis
                                     dataKey="day"
-                                    stroke="#9ca3af"
+                                    stroke="#111827"
                                     style={{ fontSize: '14px' }}
                                 />
                                 <YAxis
-                                    stroke="#9ca3af"
+                                    stroke="#111827"
                                     style={{ fontSize: '14px' }}
                                     domain={[0, 10]}
                                 />
@@ -95,17 +95,17 @@ const Statistics = () => {
 
                     {/* Right: Achievements Section (Takes 1 column on large screens) */}
                     <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-shadow">
-                        <h3 className="text-xl font-bold text-gray-800 mb-6">Achievements</h3>
+                        <h3 className="text-xl font-bold text-gray-900 mb-6">Achievements</h3>
                         <div className="grid grid-cols-2 gap-4">
                             {achievements.map((achievement) => {
                                 const IconComponent = achievement.icon;
                                 const colorClasses = {
-                                    orange: { bg: 'bg-orange-100', border: 'border-orange-200', text: 'text-orange-600' },
-                                    yellow: { bg: 'bg-yellow-100', border: 'border-yellow-200', text: 'text-yellow-600' },
-                                    emerald: { bg: 'bg-emerald-100', border: 'border-emerald-200', text: 'text-emerald-600' },
-                                    purple: { bg: 'bg-purple-100', border: 'border-purple-200', text: 'text-purple-600' },
-                                    blue: { bg: 'bg-blue-100', border: 'border-blue-200', text: 'text-blue-600' },
-                                    green: { bg: 'bg-green-100', border: 'border-green-200', text: 'text-green-600' }
+                                    orange: { bg: 'bg-orange-100', border: 'border-orange-200', text: 'text-orange-700' },
+                                    yellow: { bg: 'bg-yellow-100', border: 'border-yellow-200', text: 'text-yellow-700' },
+                                    emerald: { bg: 'bg-emerald-100', border: 'border-emerald-200', text: 'text-emerald-700' },
+                                    purple: { bg: 'bg-purple-100', border: 'border-purple-200', text: 'text-purple-700' },
+                                    blue: { bg: 'bg-blue-100', border: 'border-blue-200', text: 'text-blue-700' },
+                                    green: { bg: 'bg-green-100', border: 'border-green-200', text: 'text-green-700' }
                                 };
 
                                 const colors = colorClasses[achievement.color];
@@ -115,7 +115,7 @@ const Statistics = () => {
                                         key={achievement.id}
                                         className={`rounded-xl p-4 border-2 transition-all cursor-pointer hover:scale-105 ${achievement.unlocked
                                             ? `${colors.border} ${colors.bg}`
-                                            : 'border-gray-200 bg-gray-50 opacity-50'
+                                            : 'border-gray-300 bg-gray-100'
                                             }`}
                                     >
                                         <div className="flex flex-col items-center text-center gap-2">
@@ -128,12 +128,12 @@ const Statistics = () => {
                                                 <IconComponent
                                                     className={`w-6 h-6 ${achievement.unlocked
                                                         ? colors.text
-                                                        : 'text-gray-400'
+                                                        : 'text-gray-900'
                                                         }`}
                                                 />
                                             </div>
                                             <p
-                                                className={`text-xs font-semibold ${achievement.unlocked ? 'text-gray-800' : 'text-gray-400'
+                                                className={`text-xs font-semibold ${achievement.unlocked ? 'text-gray-900' : 'text-gray-900'
                                                     }`}
                                             >
                                                 {achievement.title}
