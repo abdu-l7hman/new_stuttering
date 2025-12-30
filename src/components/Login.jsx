@@ -62,7 +62,7 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
                     <h1 className="text-4xl font-bold mb-2">
                         <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">Welcome Back</span>
                     </h1>
-                    <p className="text-gray-600">
+                    <p className="text-gray-900">
                         Sign in to continue your speech journey
                     </p>
                 </div>
@@ -71,12 +71,12 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Email Field */}
                     <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                             Email Address
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Mail className="h-5 w-5 text-gray-400" />
+                                <Mail className="h-5 w-5 text-gray-600" />
                             </div>
                             <input
                                 type="email"
@@ -101,12 +101,12 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
 
                     {/* Password Field */}
                     <div>
-                        <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label htmlFor="password" className="block text-sm font-semibold text-gray-900 mb-2">
                             Password
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Lock className="h-5 w-5 text-gray-400" />
+                                <Lock className="h-5 w-5 text-gray-600" />
                             </div>
                             <input
                                 type="password"
@@ -137,13 +137,13 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
                                 name="rememberMe"
                                 checked={formData.rememberMe}
                                 onChange={handleChange}
-                                className="w-4 h-4 text-emerald-500 border-gray-300 rounded focus:ring-emerald-500 cursor-pointer"
+                                className="w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-600 cursor-pointer"
                             />
-                            <span className="ml-2 text-sm text-gray-700">Remember me</span>
+                            <span className="ml-2 text-sm text-gray-900">Remember me</span>
                         </label>
                         <button
                             type="button"
-                            className="text-sm text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
+                            className="text-sm text-emerald-700 hover:text-emerald-800 font-semibold transition-colors"
                         >
                             Forgot password?
                         </button>
@@ -152,7 +152,7 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
                     {/* Login Button */}
                     <button
                         type="submit"
-                        className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
                     >
                         <span>Sign In</span>
                         <ArrowRight className="w-5 h-5" />
@@ -161,11 +161,11 @@ const Login = ({ onLogin, onSwitchToRegister }) => {
 
                 {/* Register Link */}
                 <div className="mt-8 text-center">
-                    <p className="text-gray-600">
+                    <p className="text-gray-900">
                         Don't have an account?{' '}
                         <button
                             onClick={onSwitchToRegister}
-                            className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
+                            className="text-emerald-700 hover:text-emerald-800 font-semibold transition-colors"
                         >
                             Create one now
                         </button>
