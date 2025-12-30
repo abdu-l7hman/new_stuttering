@@ -133,8 +133,8 @@ const Dashboard = ({ onCardClick }) => {
                 {/* Practice Section */}
                 <div>
                     <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-bold text-gray-800">Today's Practice</h2>
-                        <span className="text-sm text-gray-500">
+                        <h2 className="text-2xl font-bold text-gray-900">Today's Practice</h2>
+                        <span className="text-sm text-gray-900">
                             {practiceCards.filter(c => c.completed).length} of {practiceCards.length} completed
                         </span>
                     </div>
@@ -157,25 +157,25 @@ const Dashboard = ({ onCardClick }) => {
                                 <div className="flex items-start justify-between mb-4">
                                     <span className="text-4xl">{card.icon}</span>
                                     {card.completed ? (
-                                        <div className="flex items-center gap-1 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">
+                                        <div className="flex items-center gap-1 text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">
                                             <CheckCircle className="w-4 h-4" />
                                             <span className="text-xs font-semibold">Done</span>
                                         </div>
                                     ) : (
-                                        <div className="flex items-center gap-1 text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
+                                        <div className="flex items-center gap-1 text-amber-700 bg-amber-50 px-3 py-1 rounded-full">
                                             <Award className="w-4 h-4" />
                                             <span className="text-xs font-semibold">{card.xp} XP</span>
                                         </div>
                                     )}
                                 </div>
 
-                                <h3 className="text-lg font-bold text-gray-800 mb-2 text-center">
+                                <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">
                                     {card.title}
                                 </h3>
-                                <p className="text-sm text-gray-600 mb-4 text-center">{card.description}</p>
+                                <p className="text-sm text-gray-900 mb-4 text-center">{card.description}</p>
 
                                 {!card.completed && (
-                                    <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors">
+                                    <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors">
                                         Start Exercise
                                     </button>
                                 )}
